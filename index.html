@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flash Wally</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08090a;
+      --fg: #f7f8f8;
+      --muted: #8a8f98;
+      --accent: #bd8e4b;
+      --line: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+    main {
+      max-width: 38rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 3rem;
+    }
+    p { color: var(--muted); }
+    h1 { font-size: 2rem; font-weight: 560; letter-spacing: -0.03em; margin: 0 0 0.4rem; }
+    .kicker { color: var(--accent); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.8rem; }
+    ol { padding-left: 1.2rem; color: var(--muted); }
+    li + li { margin-top: 0.35rem; }
+    esp-web-install-button { --esp-tools-button-color: var(--accent); --esp-tools-button-text-color: #1a1208; }
+    .install { margin: 1.6rem 0 1.8rem; }
+    footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Wally 26.11.22</p>
+    <h1>Install the frame firmware.</h1>
+    <p>Chrome on this computer, with the EE02 plugged in by a USB data cable. This install keeps Wi-Fi. After the splash, the frame downloads today's picture. Erase only if the installer asks on a board that has never run Wally.</p>
+    <div class="install">
+      <esp-web-install-button manifest="manifest.json">
+        <button slot="activate">Connect and install</button>
+        <span slot="unsupported">Use Chrome or Edge on a computer. This browser cannot reach the USB port.</span>
+        <span slot="not-allowed">Open this page at https://pixelwave.github.io/wally-firmware/ so Chrome can use the USB port.</span>
+      </esp-web-install-button>
+    </div>
+    <ol>
+      <li>Plug the frame into this computer. If no port appears, hold BOOT, tap RESET, then release BOOT and click the button again.</li>
+      <li>Choose the USB serial device and let the erase finish.</li>
+      <li>After erase, the panel shows a QR code. Join Wally-Setup, open the page, and enter Wi-Fi, the Wally address, and the Wally password. The Home Assistant key is under Advanced.</li>
+    </ol>
+    <footer>The refresh takes about 30 seconds and the panel may whine. That sound is the panel supply.</footer>
+  </main>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js"></script>
+</body>
+</html>
