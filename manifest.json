@@ -1,6 +1,6 @@
 {
   "name": "Wally",
-  "version": "2026.48.2",
+  "version": "2026.48.3",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 0,
   "builds": [
